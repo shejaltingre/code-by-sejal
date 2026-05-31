@@ -1,0 +1,7 @@
+Day 7: Added UI for To-Do App using Razor Pages
+
+- Created Index.cshtml for UI
+- Added form to insert new tasks
+- Displayed list of todos using foreach loop
+- Implemented delete button for each task
+- Used asp-for and asp-page-handler for model binding and actions
