@@ -49,3 +49,4 @@ public IActionResult OnPostDelete(int id)
 }
 
 //Run the following commands to create and apply the initial database migration:
+Add-Migration InitialCreate
