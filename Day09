@@ -1,0 +1,51 @@
+// Backend logic for Todo App using Razor Pages and Entity Framework Core (Add, Display, Delete operations)
+
+Index.cshtml.cs (Backend Logic)
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Collections.Generic;
+using System.Linq;
+
+public class IndexModel : PageModel
+{
+    private readonly AppDbContext _context;
+
+    public IndexModel(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    public List<Todo> Todos { get; set; }
+
+    [BindProperty]
+    public Todo NewTodo { get; set; }
+
+    public void OnGet()
+    {
+        Todos = _context.Todos.ToList();
+    }
+
+    public IActionResult OnPost()
+    {
+        if (!ModelState.IsValid)
+            return Page();
+
+        _context.Todos.Add(NewTodo);
+        _context.SaveChanges();
+
+        return RedirectToPage();
+    }
+public IActionResult OnPostDelete(int id)
+    {
+        var todo = _context.Todos.Find(id);
+        if (todo != null)
+        {
+            _context.Todos.Remove(todo);
+            _context.SaveChanges();
+        }
+
+        return RedirectToPage();
+    }
+}
+
+//Run the following commands to create and apply the initial database migration:
