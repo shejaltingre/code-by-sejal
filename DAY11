@@ -5,3 +5,30 @@ Today I worked on Razor Pages and implemented CRUD operations for:
 - LabCode
 - Menu
 #dotnet #csharp #learning #webdevelopment
+
+1.Designation model
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
+
+namespace Models
+{
+    public  class Designation
+    {
+        [Key]
+        [Required]
+        public int Designation_ID { get; set; }
+
+        [Required]
+        [Display(Name = "Designation")]
+        public string Designation_Name { get; set; }
+        [StringLength(100,MinimumLength=1)]
+        public DateTime? Designation_AddedOn { get; set; }
+        public DateTime? Designation_UpdatedOn { get; set; }
+        public string? Designation_Operation { get; set; }
+        public bool? Designation_Flag { get; set; }
+    }
+}
