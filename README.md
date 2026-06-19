@@ -1,7 +1,7 @@
 # code-by-sejal
 # 🌐 Web Devlopment Practice Repository
 
-This repository contains my daily practice in web development including frontend, backend, and database.
+This repository contains my practice in web development including frontend, backend, and database.
 
 ## 🚀 Skills
 
